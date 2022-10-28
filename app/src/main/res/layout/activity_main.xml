@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#D1CECE"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:background="#CACACA"
+        android:padding="5dp"
+        android:text="Currency: 0 pt"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/logButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:paddingLeft="4dp"
+        android:paddingRight="4dp"
+        android:text="Log"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="0dp"
+        android:layout_height="80dp"
+        android:background="#6E6C6C"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <ImageButton
+            android:id="@+id/petInfoButton"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_margin="7dp"
+            android:layout_weight="1"
+            android:background="#B3B0B0"
+            android:padding="5dp"
+            android:scaleType="fitCenter"
+            app:srcCompat="@drawable/info" />
+
+        <ImageButton
+            android:id="@+id/logHistoryButton"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_margin="7dp"
+            android:layout_weight="1"
+            android:background="#B3B0B0"
+            android:padding="5dp"
+            android:scaleType="fitCenter"
+            app:srcCompat="@drawable/histogram" />
+
+        <ImageButton
+            android:id="@+id/homeButton"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_margin="7dp"
+            android:layout_weight="1"
+            android:background="#B3B0B0"
+            android:padding="5dp"
+            android:scaleType="fitCenter"
+            app:srcCompat="@drawable/house" />
+
+        <ImageButton
+            android:id="@+id/shopButton"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_margin="7dp"
+            android:layout_weight="1"
+            android:background="#B3B0B0"
+            android:padding="5dp"
+            android:scaleType="fitCenter"
+            app:srcCompat="@drawable/shop" />
+
+        <ImageButton
+            android:id="@+id/settingsButton"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_margin="7dp"
+            android:layout_weight="1"
+            android:background="#B3B0B0"
+            android:padding="5dp"
+            android:scaleType="fitCenter"
+            app:srcCompat="@drawable/cog" />
+
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/petView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/cat" />
+
+    <ImageView
+        android:id="@+id/foodBowl"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="16dp"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/dogbowl" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
