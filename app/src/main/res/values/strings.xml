@@ -1,3 +1,13 @@
 <resources>
     <string name="app_name">JuvenileDiabetesManager</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_main2">MainActivity2</string>
+    <string name="title_home">Home</string>
+    <string name="title_pet">Pet</string>
+    <string name="title_diary">Diary</string>
+    <string name="title_shop">Shop</string>
+    <string name="title_settings">Settings</string>
+    <string name="button_log">Log</string>
+    <string name="placeholder_currency">Currency: 0 pts</string>
 </resources>
