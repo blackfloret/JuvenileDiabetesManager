@@ -178,7 +178,7 @@
                                         app:srcCompat="@android:drawable/ic_lock_idle_alarm" />
 
                                     <TextView
-                                        android:layout_width="281dp"
+                                        android:layout_width="299dp"
                                         android:layout_height="wrap_content"
                                         android:text="Daily Goal "
                                         android:textAlignment="textEnd"
@@ -332,7 +332,7 @@
                                         android:src="@android:drawable/ic_lock_idle_lock" />
 
                                     <TextView
-                                        android:layout_width="277dp"
+                                        android:layout_width="297dp"
                                         android:layout_height="wrap_content"
                                         android:text="Parent Settings "
                                         android:textAlignment="textEnd"
