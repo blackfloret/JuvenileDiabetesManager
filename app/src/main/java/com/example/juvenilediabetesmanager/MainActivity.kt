@@ -13,9 +13,6 @@ import com.example.juvenilediabetesmanager.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
 
-    private var shopLayoutManager: RecyclerView.LayoutManager? = null
-    private var adapter: RecyclerView.Adapter<ShopRecyclerAdapter.ViewHolder>? = null
-
     private lateinit var binding: ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -36,13 +33,6 @@ class MainActivity : AppCompatActivity() {
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
-
-        val shopRecyclerView: RecyclerView = findViewById(R.id.shopRecyclerView)
-        shopLayoutManager = LinearLayoutManager(this)
-        shopRecyclerView.layoutManager = shopLayoutManager
-
-        adapter = ShopRecyclerAdapter()
-        shopRecyclerView.adapter = adapter
 
     }
 
