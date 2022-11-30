@@ -5,10 +5,11 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#D1CECE"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    tools:ignore="ContentDescription">
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/currencyDisplay"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
@@ -29,7 +30,7 @@
         android:paddingRight="4dp"
         android:text="@string/button_log"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        app:layout_constraintTop_toBottomOf="@+id/currencyDisplay" />
 
     <LinearLayout
         android:id="@+id/linearLayout"

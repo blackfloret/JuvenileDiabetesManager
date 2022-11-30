@@ -7,49 +7,66 @@
     android:background="#D1CECE"
     tools:context="ui.home.HomeFragment">
 
+    <ImageView
+        android:id="@+id/background"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:scaleType="center"
+        android:scaleX="1.5"
+        android:scaleY="1.5"
+        android:src="@drawable/background"
+        android:contentDescription="Background image depicting a room"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/currencyDisplay"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
         android:background="#CACACA"
         android:padding="5dp"
         android:text="@string/placeholder_currency"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/logButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="16dp"
-        android:paddingLeft="4dp"
-        android:paddingRight="4dp"
-        android:text="@string/button_log"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
 
     <ImageView
         android:id="@+id/petView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="0dp"
+        android:layout_height="300dp"
+        android:layout_marginStart="32dp"
         android:contentDescription="A picture of a cat"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/cat" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/socks_sitting" />
 
     <ImageView
         android:id="@+id/foodBowl"
-        android:layout_width="100dp"
+        android:layout_width="150dp"
         android:layout_height="100dp"
         android:layout_marginStart="16dp"
-        android:contentDescription="A dog food bowl with a bone above it"
+        android:layout_marginBottom="-50dp"
+        android:contentDescription="A pink cat food bowl"
         app:layout_constraintBottom_toBottomOf="@+id/petView"
         app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/dogbowl" />
+        app:srcCompat="@drawable/foodbowl" />
+
+    <ImageButton
+        android:id="@+id/logButton"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:background="#00EDEBEB"
+        android:padding="10dp"
+        android:scaleType="fitCenter"
+        android:src="@drawable/pencil"
+        android:contentDescription="Create Entry"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
