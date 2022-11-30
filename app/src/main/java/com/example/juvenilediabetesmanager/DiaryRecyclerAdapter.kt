@@ -15,7 +15,7 @@ class DiaryRecyclerAdapter: RecyclerView.Adapter<DiaryRecyclerAdapter.ViewHolder
     // create card view, inflate it, pass to inner class
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         // view object
-        val v = LayoutInflater.from(parent.context).inflate(R.layout.fragment_diary, parent, false)
+        val v = LayoutInflater.from(parent.context).inflate(R.layout.diary_card_layout, parent, false)
         return ViewHolder(v) // pass the view object back
     }
 
