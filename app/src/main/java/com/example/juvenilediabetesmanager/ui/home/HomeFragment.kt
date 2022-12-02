@@ -1,5 +1,6 @@
 package com.example.juvenilediabetesmanager.ui.home
 
+import android.content.Context
 import android.os.Build
 import android.os.Bundle
 import android.util.Log
@@ -7,11 +8,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageButton
+import android.widget.TextView
 import androidx.annotation.RequiresApi
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.example.juvenilediabetesmanager.AppDatabase
 import com.example.juvenilediabetesmanager.Entry
+import com.example.juvenilediabetesmanager.R
 import com.example.juvenilediabetesmanager.databinding.FragmentHomeBinding
 import java.time.LocalDateTime
 
@@ -29,6 +32,13 @@ class HomeFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
+
+/*        if (sharedPref != null) {
+            with (sharedPref.edit()) {
+                putInt(getString(R.string.saved_balance_key), newBalance)
+                apply()
+            }
+        }*/
         val homeViewModel =
             ViewModelProvider(this).get(HomeViewModel::class.java)
 
@@ -43,7 +53,14 @@ class HomeFragment : Fragment() {
         //homeViewModel.text.observe(viewLifecycleOwner) {
          //   textView.text = it
         //}
-
+        val currencyDisplay: TextView = binding.currencyDisplay
+        val sharedPref = activity?.getPreferences(Context.MODE_PRIVATE)
+        val highScore: Int
+        if (sharedPref != null) {
+            val defaultValue = resources.getInteger(R.integer.saved_balance_default_key)
+            highScore = sharedPref.getInt(getString(R.string.saved_balance_key), defaultValue)
+            currencyDisplay.text = highScore.toString()
+        }
 
         val logButton: ImageButton = binding.logButton
         logButton.setOnClickListener {
