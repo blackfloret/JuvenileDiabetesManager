@@ -49,7 +49,7 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/socks_sitting" />
+        app:srcCompat="@drawable/the_pet" />
 
     <ImageView
         android:id="@+id/foodBowl"
