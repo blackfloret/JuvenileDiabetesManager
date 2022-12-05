@@ -9,8 +9,8 @@ import androidx.recyclerview.widget.RecyclerView
 class DiaryRecyclerAdapter: RecyclerView.Adapter<DiaryRecyclerAdapter.ViewHolder>(){
 
     // arrays values are hard-coded for now
-    private var titles = arrayOf("Date of Entry 1", "Date of Entry 2", "Date of Entry 3")
-    private var details = arrayOf("Entry 1 details", "Entry 2 details", "Entry 3 details")
+    private var titles = arrayOf("10/22/2022", "10/21/2022", "12/21/2022")
+    private var details = arrayOf("12:02 pm", "7:35 pm", "6:51 pm")
 
     // create card view, inflate it, pass to inner class
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
