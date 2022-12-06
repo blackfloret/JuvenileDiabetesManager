@@ -16,36 +16,23 @@ class ShopRecyclerAdapter: RecyclerView.Adapter<ShopRecyclerAdapter.ViewHolder>(
     }
 
     override fun getItemCount(): Int {
-        //Return the number of card rows (remember, each row is 3 items, so array size / 3 = how many cards)
-        //So if we have 6 items, then we need 2 card rows to display them
-        return costsArr.size/3
+        //Return the number of card rows
+        return costsArr.size
     }
 
     override fun onBindViewHolder(holder: ShopRecyclerAdapter.ViewHolder, position: Int) {
         //Populate the arrays data to each card view
         holder.itemCost1.text = costsArr[position]
         holder.itemImage1.setImageResource(imagesArr[position])
-        holder.itemCost2.text = costsArr[position]
-        holder.itemImage2.setImageResource(imagesArr[position])
-        holder.itemCost3.text = costsArr[position]
-        holder.itemImage3.setImageResource(imagesArr[position])
     }
 
     inner class ViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
         var itemImage1: ImageView
         var itemCost1: TextView
-        var itemImage2: ImageView
-        var itemCost2: TextView
-        var itemImage3: ImageView
-        var itemCost3: TextView
 
         init {
             itemImage1 = itemView.findViewById(R.id.item_image1)
             itemCost1 = itemView.findViewById(R.id.textView1)
-            itemImage2 = itemView.findViewById(R.id.item_image2)
-            itemCost2 = itemView.findViewById(R.id.textView2)
-            itemImage3 = itemView.findViewById(R.id.item_image3)
-            itemCost3 = itemView.findViewById(R.id.textView3)
         }
     }
 }

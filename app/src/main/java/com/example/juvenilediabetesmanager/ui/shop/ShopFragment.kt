@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.juvenilediabetesmanager.R
@@ -33,7 +34,7 @@ class ShopFragment : Fragment() {
         _binding = FragmentShopBinding.inflate(inflater, container, false)
 
         val shopRecyclerView: RecyclerView = binding.shopRecyclerView
-        shopLayoutManager = LinearLayoutManager(requireActivity())
+        shopLayoutManager = GridLayoutManager(requireActivity(), 3)
         shopRecyclerView.layoutManager = shopLayoutManager
 
         adapter = ShopRecyclerAdapter()
