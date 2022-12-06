@@ -5,7 +5,6 @@
         android:id="@+id/navigation_pet"
         android:icon="@drawable/info"
         android:title="@string/title_pet" />
-
     <item
         android:id="@+id/navigation_diary"
         android:icon="@drawable/histogram"
