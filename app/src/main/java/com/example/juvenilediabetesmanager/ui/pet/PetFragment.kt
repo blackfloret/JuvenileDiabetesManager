@@ -28,9 +28,8 @@ class PetFragment : Fragment() {
         _binding = FragmentPetBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-//        val textView: TextView = binding.textPet
         petViewModel.text.observe(viewLifecycleOwner) {
-//            textView.text = it
+
         }
         return root
     }
