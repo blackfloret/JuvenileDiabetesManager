@@ -23,14 +23,14 @@
 
     <TextView
         android:id="@+id/currencyDisplay"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="59dp"
+        android:layout_height="45dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:background="#6E6E6E"
         android:fontFamily="monospace"
         android:padding="5dp"
-        android:text="858"
+        android:text="0"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
         android:textColor="#FFFFFF"
         android:textSize="34sp"
