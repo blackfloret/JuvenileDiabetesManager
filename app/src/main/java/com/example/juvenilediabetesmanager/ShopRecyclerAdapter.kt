@@ -7,8 +7,8 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
 class ShopRecyclerAdapter: RecyclerView.Adapter<ShopRecyclerAdapter.ViewHolder>() {
-    private var costsArr = arrayOf("10", "55", "80", "20", "66", "90")
-    private var imagesArr = intArrayOf(R.drawable.hat1, R.drawable.hat2, R.drawable.hat3, R.drawable.hat2, R.drawable.hat3, R.drawable.hat1)
+    private var costsArr = arrayOf("10", "15", "20", "35", "40", "45")
+    private var imagesArr = intArrayOf(R.drawable.clothingitem01, R.drawable.clothingitem02, R.drawable.clothingitem03, R.drawable.clothingitem04, R.drawable.clothingitem05, R.drawable.clothingitem06)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val v = LayoutInflater.from(parent.context).inflate(R.layout.card_layout, parent, false)
