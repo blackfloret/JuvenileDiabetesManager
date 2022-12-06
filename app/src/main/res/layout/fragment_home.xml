@@ -7,49 +7,208 @@
     android:background="#D1CECE"
     tools:context="ui.home.HomeFragment">
 
-    <TextView
-        android:id="@+id/textView"
+    <ImageView
+        android:id="@+id/background"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        android:background="#CACACA"
-        android:padding="5dp"
-        android:text="@string/placeholder_currency"
+        android:layout_height="match_parent"
+        android:scaleType="center"
+        android:scaleX="1.5"
+        android:scaleY="1.5"
+        android:src="@drawable/background"
+        android:contentDescription="Background image depicting a room"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/logButton"
+    <TextView
+        android:id="@+id/currencyDisplay"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="16dp"
-        android:paddingLeft="4dp"
-        android:paddingRight="4dp"
-        android:text="@string/button_log"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:background="#6E6E6E"
+        android:fontFamily="monospace"
+        android:padding="5dp"
+        android:text="858"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        android:textColor="#FFFFFF"
+        android:textSize="34sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
         android:id="@+id/petView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="0dp"
+        android:layout_height="300dp"
+        android:layout_marginStart="32dp"
         android:contentDescription="A picture of a cat"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/cat" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/the_pet" />
 
     <ImageView
         android:id="@+id/foodBowl"
-        android:layout_width="100dp"
+        android:layout_width="150dp"
         android:layout_height="100dp"
         android:layout_marginStart="16dp"
-        android:contentDescription="A dog food bowl with a bone above it"
+        android:layout_marginBottom="-50dp"
+        android:contentDescription="A pink cat food bowl"
         app:layout_constraintBottom_toBottomOf="@+id/petView"
         app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/dogbowl" />
+        app:srcCompat="@drawable/foodbowl" />
+
+    <ImageButton
+        android:id="@+id/logButton"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:background="#00EDEBEB"
+        android:contentDescription="Create Entry"
+        android:padding="0dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/pencilicon"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="#6E6E6E"
+        android:padding="5dp"
+        android:scaleType="fitCenter"
+        android:src="@drawable/currency_fish"
+        app:layout_constraintBottom_toBottomOf="@+id/currencyDisplay"
+        app:layout_constraintDimensionRatio="1"
+        app:layout_constraintStart_toEndOf="@+id/currencyDisplay"
+        app:layout_constraintTop_toTopOf="@+id/currencyDisplay" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/selectSnackBox"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
+        android:background="#DADADA"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/selectSnackText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="Select a snack to feed your pet!"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/fishFood"
+            android:layout_width="0dp"
+            android:layout_height="100dp"
+            android:src="@drawable/fried_fish"
+            app:layout_constraintEnd_toStartOf="@+id/canFood"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/canFood" />
+
+        <ImageView
+            android:id="@+id/mouseFood"
+            android:layout_width="0dp"
+            android:layout_height="100dp"
+            android:src="@drawable/can"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/canFood"
+            app:layout_constraintTop_toTopOf="@+id/canFood" />
+
+        <ImageView
+            android:id="@+id/canFood"
+            android:layout_width="0dp"
+            android:layout_height="100dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="16dp"
+            android:src="@drawable/mouse"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/mouseFood"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/fishFood"
+            app:layout_constraintTop_toBottomOf="@+id/selectSnackText" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/confirmTestBox"
+        android:layout_width="0dp"
+        android:layout_height="200dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
+        android:background="#DFDEDE"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.5">
+
+        <TextView
+            android:id="@+id/confirmTestText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:text="Just did a blood glucose test?\nLog it to get points!"
+            android:textAlignment="center"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/testConfirm"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Yes, I've just tested! +50 pts"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/confirmTestText" />
+
+        <Button
+            android:id="@+id/testCancel"
+            style="@style/Widget.AppCompat.Button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#3C0D0D"
+            android:fontFamily="sans-serif"
+            android:paddingTop="0dp"
+            android:paddingBottom="0dp"
+            android:text="@android:string/cancel"
+            android:textAllCaps="false"
+            android:textStyle="italic"
+            app:iconPadding="0dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/testConfirm" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
