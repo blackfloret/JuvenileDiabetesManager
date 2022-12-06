@@ -201,7 +201,7 @@
             android:fontFamily="sans-serif"
             android:paddingTop="0dp"
             android:paddingBottom="0dp"
-            android:text="Oops, I did not test yet"
+            android:text="@android:string/cancel"
             android:textAllCaps="false"
             android:textStyle="italic"
             app:iconPadding="0dp"
