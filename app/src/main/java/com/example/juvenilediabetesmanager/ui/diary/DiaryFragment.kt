@@ -34,19 +34,22 @@ class DiaryFragment : Fragment() {
         _binding = FragmentDiaryBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
+        val db = AppDatabase.getDatabase(requireContext())
+        val entryDao = db.entryDao()
 
         // db pull
         Thread {
-            val db = AppDatabase.getDatabase(requireContext())
-            val entryDao = db.entryDao()
             val allEntries: List<Entry>  = entryDao.getAll() // gets all entries
             diaryAdapter = DiaryRecyclerAdapter(requireContext(), allEntries)
-            val recyclerView: RecyclerView = binding.diaryRecyclerView
-            diaryLayoutManager = LinearLayoutManager(requireActivity())
-            recyclerView.layoutManager = diaryLayoutManager
+            requireActivity().runOnUiThread {
 
-            recyclerView.adapter = diaryAdapter
-        }
+                val recyclerView: RecyclerView = binding.diaryRecyclerView
+                diaryLayoutManager = LinearLayoutManager(requireActivity())
+                recyclerView.layoutManager = diaryLayoutManager
+                recyclerView.adapter = diaryAdapter
+            }
+
+        }.start()
 
 
 

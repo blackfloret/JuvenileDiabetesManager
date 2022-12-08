@@ -2,12 +2,18 @@ package com.example.juvenilediabetesmanager
 
 import android.content.Context
 import android.database.sqlite.SQLiteDatabase
+import android.os.Build
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Filterable
 import android.widget.TextView
+import androidx.annotation.RequiresApi
 import androidx.recyclerview.widget.RecyclerView
+import java.text.DateFormat.MEDIUM
+import java.time.LocalDateTime
+import java.time.format.DateTimeFormatter.*
+import java.time.format.FormatStyle
 
 class DiaryRecyclerAdapter(private val context: Context, entries: List<Entry>) : RecyclerView.Adapter<DiaryRecyclerAdapter.ViewHolder>() {
 
@@ -33,10 +39,12 @@ class DiaryRecyclerAdapter(private val context: Context, entries: List<Entry>) :
     }
 
     // populates the data to the card_view
+    @RequiresApi(Build.VERSION_CODES.O)
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val entries = listEntries[position]
-        holder.itemTitle.text = entries.time
-        holder.itemDetail.text = "Filler"
+        holder.itemTitle.text = LocalDateTime.parse(entries.time, ISO_LOCAL_DATE_TIME).format(ofLocalizedDateTime(
+            FormatStyle.MEDIUM, FormatStyle.SHORT))
+        holder.itemDetail.text = ""
     }
 
     inner class ViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
