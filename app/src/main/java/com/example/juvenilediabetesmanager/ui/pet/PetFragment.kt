@@ -1,13 +1,16 @@
 package com.example.juvenilediabetesmanager.ui.pet
 
+import android.media.MediaPlayer
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.view.isVisible
-//import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import com.example.juvenilediabetesmanager.R
 import com.example.juvenilediabetesmanager.databinding.FragmentPetBinding
 
 class PetFragment : Fragment() {
@@ -37,6 +40,11 @@ class PetFragment : Fragment() {
                 selectInventoryBox.visibility = View.VISIBLE
                 closeInventoryButton.visibility = View.VISIBLE
                 openInventoryButton.visibility = View.INVISIBLE
+                val mediaPlayer = MediaPlayer.create(this.activity, R.raw.sfx_bongoup)
+                mediaPlayer.start()
+                Handler(Looper.getMainLooper()).postDelayed({
+                    mediaPlayer.release()
+                }, mediaPlayer.duration.toLong())
             }
         }
 
@@ -45,6 +53,11 @@ class PetFragment : Fragment() {
                 selectInventoryBox.visibility = View.INVISIBLE
                 openInventoryButton.visibility = View.VISIBLE
                 closeInventoryButton.visibility = View.INVISIBLE
+                val mediaPlayer = MediaPlayer.create(this.activity, R.raw.sfx_bongodown)
+                mediaPlayer.start()
+                Handler(Looper.getMainLooper()).postDelayed({
+                    mediaPlayer.release()
+                }, mediaPlayer.duration.toLong())
             }
         }
         petViewModel.text.observe(viewLifecycleOwner) {

@@ -1,9 +1,11 @@
 package com.example.juvenilediabetesmanager.ui.home
 
 import android.content.Context
-import android.media.Image
+import android.media.MediaPlayer
 import android.os.Build
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -68,26 +70,56 @@ class HomeFragment : Fragment() {
         logButton.setOnClickListener {
             if(!selectSnackBox.isVisible) {
                 selectSnackBox.visibility = View.VISIBLE
+                val mediaPlayer = MediaPlayer.create(this.activity, R.raw.sfx_xyloup)
+                mediaPlayer.start()
+                Handler(Looper.getMainLooper()).postDelayed({
+                    mediaPlayer.release()
+                }, mediaPlayer.duration.toLong())
             } else {
                 selectSnackBox.visibility = View.GONE
+                val mediaPlayer = MediaPlayer.create(this.activity, R.raw.sfx_xylodown)
+                mediaPlayer.start()
+                Handler(Looper.getMainLooper()).postDelayed({
+                    mediaPlayer.release()
+                }, mediaPlayer.duration.toLong())
             }
         }
 
         mouseButton.setOnClickListener {
             selectSnackBox.visibility = View.GONE
             confirmTestBox.visibility = View.VISIBLE
+            val mediaPlayer = MediaPlayer.create(this.activity, R.raw.sfx_eating)
+            mediaPlayer.start()
+            Handler(Looper.getMainLooper()).postDelayed({
+                mediaPlayer.release()
+            }, mediaPlayer.duration.toLong())
         }
         fishButton.setOnClickListener {
             selectSnackBox.visibility = View.GONE
             confirmTestBox.visibility = View.VISIBLE
+            val mediaPlayer = MediaPlayer.create(this.activity, R.raw.sfx_eating)
+            mediaPlayer.start()
+            Handler(Looper.getMainLooper()).postDelayed({
+                mediaPlayer.release()
+            }, mediaPlayer.duration.toLong())
         }
         canButton.setOnClickListener {
             selectSnackBox.visibility = View.GONE
             confirmTestBox.visibility = View.VISIBLE
+            val mediaPlayer = MediaPlayer.create(this.activity, R.raw.sfx_eating)
+            mediaPlayer.start()
+            Handler(Looper.getMainLooper()).postDelayed({
+                mediaPlayer.release()
+            }, mediaPlayer.duration.toLong())
         }
 
         confirmTestButton.setOnClickListener {
             confirmTestBox.visibility = View.GONE
+            val mediaPlayer = MediaPlayer.create(this.activity, R.raw.sfx_xylo3up)
+            mediaPlayer.start()
+            Handler(Looper.getMainLooper()).postDelayed({
+                mediaPlayer.release()
+            }, mediaPlayer.duration.toLong())
             Thread {
                 val entryDao = db.entryDao()
                 val newEntry = Entry(LocalDateTime.now().toString())
@@ -111,7 +143,11 @@ class HomeFragment : Fragment() {
 
         cancelTestButton.setOnClickListener {
             confirmTestBox.visibility = View.GONE
-
+            val mediaPlayer = MediaPlayer.create(this.activity, R.raw.sfx_xylodown)
+            mediaPlayer.start()
+            Handler(Looper.getMainLooper()).postDelayed({
+                mediaPlayer.release()
+            }, mediaPlayer.duration.toLong())
         }
 
         return root

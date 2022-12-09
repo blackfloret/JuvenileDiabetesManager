@@ -6,25 +6,14 @@ import android.os.Build
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
-import android.util.Log
-import android.view.MenuItem
-import android.widget.Button
 import androidx.annotation.RequiresApi
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
-import androidx.navigation.NavAction
-import androidx.navigation.Navigation
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.example.juvenilediabetesmanager.databinding.ActivityMainBinding
-import com.google.android.material.bottomnavigation.BottomNavigationItemView
-import java.util.Timer
-import java.util.TimerTask
-import kotlin.concurrent.timer
 
 class MainActivity : AppCompatActivity() {
 
@@ -48,7 +37,11 @@ class MainActivity : AppCompatActivity() {
         // menu should be considered as top level destinations.
         val appBarConfiguration = AppBarConfiguration(
             setOf(
-                R.id.navigation_home, R.id.navigation_diary, R.id.navigation_shop, R.id.navigation_pet, R.id.navigation_settings
+                R.id.navigation_home,
+                R.id.navigation_diary,
+                R.id.navigation_shop,
+                R.id.navigation_pet,
+                R.id.navigation_settings
             )
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
@@ -58,20 +51,31 @@ class MainActivity : AppCompatActivity() {
         // maybe something to do with handling mp3s?
         mediaPlayer = MediaPlayer.create(this, R.raw.music_home)
         rampDown = VolumeShaper.Configuration.Builder()
-            .setDuration(1000)
+            .setDuration(500)
             .setCurve(floatArrayOf(0f, 1f), floatArrayOf(1f, 0f))
             .setInterpolatorType(VolumeShaper.Configuration.INTERPOLATOR_TYPE_LINEAR)
             .build()
         mediaPlayer.start()
         mediaPlayer.isLooping = true
 
+        // not the cleanest implementation but i was having issues with SoundPool
         navView.setOnItemSelectedListener {
             when (it.itemId) {
                 R.id.navigation_pet -> {
+                    val mediaPlayerSfx = MediaPlayer.create(this, R.raw.sfx_chime)
+                    mediaPlayerSfx.start()
+                    Handler(Looper.getMainLooper()).postDelayed({
+                        mediaPlayerSfx.release()
+                    }, mediaPlayerSfx.duration.toLong())
                     switchMusic(R.raw.music_info)
-                    navController.navigate(R.id.navigation_pet) // needed to manually navigate here
-                }                                               // instead for some reason
+                    navController.navigate(R.id.navigation_pet) // needed to manually navigate here instead
+                }
                 R.id.navigation_diary -> {
+                    val mediaPlayerSfx = MediaPlayer.create(this, R.raw.sfx_pageturn)
+                    mediaPlayerSfx.start()
+                    Handler(Looper.getMainLooper()).postDelayed({
+                        mediaPlayerSfx.release()
+                    }, mediaPlayerSfx.duration.toLong())
                     switchMusic(R.raw.music_diary)
                     navController.navigate(R.id.navigation_diary)
                 }
@@ -80,10 +84,20 @@ class MainActivity : AppCompatActivity() {
                     navController.navigate(R.id.navigation_home)
                 }
                 R.id.navigation_shop -> {
+                    val mediaPlayerSfx = MediaPlayer.create(this, R.raw.sfx_doorbell)
+                    mediaPlayerSfx.start()
+                    Handler(Looper.getMainLooper()).postDelayed({
+                        mediaPlayerSfx.release()
+                    }, mediaPlayerSfx.duration.toLong())
                     switchMusic(R.raw.music_shop)
                     navController.navigate(R.id.navigation_shop)
                 }
                 R.id.navigation_settings -> {
+                    val mediaPlayerSfx = MediaPlayer.create(this, R.raw.sfx_ratchet)
+                    mediaPlayerSfx.start()
+                    Handler(Looper.getMainLooper()).postDelayed({
+                        mediaPlayerSfx.release()
+                    }, mediaPlayerSfx.duration.toLong())
                     switchMusic(R.raw.music_settings)
                     navController.navigate(R.id.navigation_settings)
                 }
@@ -106,7 +120,7 @@ class MainActivity : AppCompatActivity() {
             mediaPlayer.release()
             mediaPlayer = newMediaPlayer
             mediaPlayer.isLooping = true
-        }, 2000)
+        }, 500)
     }
 
     override fun onStop() {
